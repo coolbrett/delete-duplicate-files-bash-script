@@ -47,6 +47,9 @@ if [ $# -gt 1 ] && [ $# -lt 4 ]; then
             echo "Cannot perform sameness check, please check files" | tee -a log.txt
             exit 1
         fi
+    else
+        echo "usage: is_same.sh file file [T|F]" | tee -a log.txt
+        exit 1
     fi
 
 else
