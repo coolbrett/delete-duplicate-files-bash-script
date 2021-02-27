@@ -30,6 +30,7 @@ if [ $# -gt 1 ] && [ $# -lt 4 ]; then
     fi
 
     if [ -f "$2" ]; then
+        echo "it's a file"
         if ! [[ -r "$2" ]] || ! [[ -w "$2" ]]; then
             if ! [[ -r "$2" ]]; then
                 echo "$2 does not have read permissions" | tee -a log.txt
@@ -40,12 +41,12 @@ if [ $# -gt 1 ] && [ $# -lt 4 ]; then
             fi
 
             echo "Cannot perform sameness check, please check files"
+        fi
     else
         echo "$2 is not a regular file" | tee -a log.txt
         echo "Cannot perform sameness check, please check files" | tee -a log.txt
         exit 1
     fi
-fi
 
 else
     echo "usage: is_same.sh file file [T|F]" | tee -a log.txt
