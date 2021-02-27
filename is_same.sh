@@ -30,7 +30,6 @@ if [ $# -gt 1 ] && [ $# -lt 4 ]; then
     fi
 
     if [ -f "$2" ]; then
-        echo "it's a file"
         if ! [[ -r "$2" ]] || ! [[ -w "$2" ]]; then
             if ! [[ -r "$2" ]]; then
                 echo "$2 does not have read permissions" | tee -a log.txt
@@ -56,7 +55,7 @@ fi
 #end of usage and error checking
 
 #start of checking the files to see if they are identical
-cmp "$1" "$2"
+cmp -s "$1" "$2"
 same=$?
 
 if [ "$3" = "T" ]; then
