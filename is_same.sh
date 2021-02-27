@@ -12,12 +12,12 @@
 if [ $# -gt 1 ] && [ $# -lt 4 ]; then
     
     if [ -f "$1"  ]; then
-        if ![[ -r "$1" ]] || ![[ -w "$1"]]; then
-            if ![[ -r "$1" ]]; then
+        if ! [[ -r "$1" ]] || ! [[ -w "$1" ]]; then
+            if ! [[ -r "$1" ]]; then
                 echo "$1 does not have read permissions" | tee -a log.txt
             fi
 
-            if ![[ -w "$1" ]]; then
+            if ! [[ -w "$1" ]]; then
                 echo "$1 does not have write permissions" | tee -a log.txt
             fi
 
@@ -30,12 +30,12 @@ if [ $# -gt 1 ] && [ $# -lt 4 ]; then
     fi
 
     if [ -f "$2" ]; then
-        if ![[ -r "$2" ]] || ![[ -w "$2" ]]; then
-            if ![[ -r "$2" ]]; then
+        if ! [[ -r "$2" ]] || ! [[ -w "$2" ]]; then
+            if ! [[ -r "$2" ]]; then
                 echo "$2 does not have read permissions" | tee -a log.txt
             fi
 
-            if ![[ -w "$2" ]]; then
+            if ! [[ -w "$2" ]]; then
                 echo "$2 does not have write permissions" | tee -a log.txt
             fi
 
@@ -45,6 +45,7 @@ if [ $# -gt 1 ] && [ $# -lt 4 ]; then
         echo "Cannot perform sameness check, please check files" | tee -a log.txt
         exit 1
     fi
+fi
 
 else
     echo "usage: is_same.sh file file [T|F]" | tee -a log.txt
