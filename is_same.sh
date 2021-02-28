@@ -6,8 +6,8 @@
 #This script compares two files and deletes one of them if they have the same 
 #contents
 
-#I'm unable to run the file without adding bash at the beginning on the 
-#command line
+#change all $'s to the number -1
+#test permission mod use cases
 
 if [ $# -gt 1 ] && [ $# -lt 4 ]; then
     if [ "$3" = "T" ] || [ "$3" = "F" ] || [ -z "$3" ]; then
