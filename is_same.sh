@@ -24,8 +24,8 @@ if [ $# -eq 0 ]; then
         echo "usage: is_same.sh file file [T|F]"
         exit 1
     else
-        fileOne=first
-        fileTwo=second
+        fileOne=$first
+        fileTwo=$second
     fi
 
 if [ $# -gt 3 ]; then
@@ -37,7 +37,6 @@ fi
 
 if [[ -n "$fileOne" ]] && [[ -n "$fileTwo" ]]  ; then
     if [ "$arg3" = "T" ] || [ "$arg3" = "F" ] || [ -z "$arg3" ]; then
-    
         if [ -f "$fileOne"  ]; then
             if ! [[ -r "$fileOne" ]] || ! [[ -w "$fileOne" ]]; then
                 if ! [[ -r "$fileOne" ]]; then
