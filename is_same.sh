@@ -66,7 +66,7 @@ fi
 #end of usage and error checking
 
 #start of checking the files to see if they are identical
-cmp -s "$$fileOne" "$$fileTwo"
+cmp -s "$fileOne" "$fileTwo"
 same=$?
 
 if [ "$arg3" = "T" ]; then
