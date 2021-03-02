@@ -10,41 +10,46 @@
 #delete file that comes first alphabetically 
 #test permission mod use cases
 
+fileOne=$1
+fileTwo=$2
+arg3=$3
+
+
 if [ $# -gt 1 ] && [ $# -lt 4 ]; then
-    if [ "$3" = "T" ] || [ "$3" = "F" ] || [ -z "$3" ]; then
+    if [ "arg3" = "T" ] || [ "arg3" = "F" ] || [ -z "arg3" ]; then
     
-        if [ -f "$1"  ]; then
-            if ! [[ -r "$1" ]] || ! [[ -w "$1" ]]; then
-                if ! [[ -r "$1" ]]; then
-                    echo "$1 does not have read permissions" | tee -a log.txt
+        if [ -f "fileOne"  ]; then
+            if ! [[ -r "fileOne" ]] || ! [[ -w "fileOne" ]]; then
+                if ! [[ -r "fileOne" ]]; then
+                    echo "fileOne does not have read permissions" | tee -a log.txt
                 fi
 
-                if ! [[ -w "$1" ]]; then
-                    echo "$1 does not have write permissions" | tee -a log.txt
+                if ! [[ -w "fileOne" ]]; then
+                    echo "fileOne does not have write permissions" | tee -a log.txt
                 fi
 
                 echo "Cannot perform sameness check, please check files"
             fi
         else
-            echo "$1 is not a regular file" | tee -a log.txt
+            echo "fileOne is not a regular file" | tee -a log.txt
             echo "Cannot perform sameness check, please check files" | tee -a log.txt
             exit 1
         fi
 
-        if [ -f "$2" ]; then
-            if ! [[ -r "$2" ]] || ! [[ -w "$2" ]]; then
-                if ! [[ -r "$2" ]]; then
-                    echo "$2 does not have read permissions" | tee -a log.txt
+        if [ -f "fileTwo" ]; then
+            if ! [[ -r "fileTwo" ]] || ! [[ -w "fileTwo" ]]; then
+                if ! [[ -r "fileTwo" ]]; then
+                    echo "fileTwo does not have read permissions" | tee -a log.txt
                 fi
 
-                if ! [[ -w "$2" ]]; then
-                    echo "$2 does not have write permissions" | tee -a log.txt
+                if ! [[ -w "fileTwo" ]]; then
+                    echo "fileTwo does not have write permissions" | tee -a log.txt
                 fi
 
                 echo "Cannot perform sameness check, please check files"
             fi
         else
-            echo "$2 is not a regular file" | tee -a log.txt
+            echo "fileTwo is not a regular file" | tee -a log.txt
             echo "Cannot perform sameness check, please check files" | tee -a log.txt
             exit 1
         fi
@@ -61,17 +66,17 @@ fi
 #end of usage and error checking
 
 #start of checking the files to see if they are identical
-cmp -s "$1" "$2"
+cmp -s "fileOne" "fileTwo"
 same=$?
 
-if [ "$3" = "T" ]; then
+if [ "arg3" = "T" ]; then
     echo "Removing log.txt"
     rm log.txt
 fi
 
 touch log.txt
 if [[ $same = 0  ]]; then
-    echo -e "Files are identical:\t$1 removed" | tee -a log.txt
+    echo -e "Files are identical:\tfileOne removed" | tee -a log.txt
 else
-    echo -e "Files not identical:\t$2 not removed" | tee -a log.txt
+    echo -e "Files not identical:\tfileTwo not removed" | tee -a log.txt
 fi
