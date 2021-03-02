@@ -6,7 +6,8 @@
 #This script compares two files and deletes one of them if they have the same 
 #contents
 
-#change all $'s to the number -1
+#prompt user if no arguments
+#delete file that comes first alphabetically 
 #test permission mod use cases
 
 if [ $# -gt 1 ] && [ $# -lt 4 ]; then
