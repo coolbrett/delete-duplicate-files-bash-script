@@ -93,6 +93,15 @@ if [ "$arg3" = "T" ]; then
     rm log.txt
 fi
 
+#choosing file
+chosen=0
+if [[ $fileOne < $fileTwo ]]; then
+    chosen=fileTwo
+else
+    chosen=fileOne
+fi
+
+echo "$chosen"
 touch log.txt
 if [[ $same = 0  ]]; then
     echo -e "Files are identical:\t$fileOne removed" | tee -a log.txt
