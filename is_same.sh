@@ -101,7 +101,6 @@ else
     chosen=$fileOne
 fi
 
-echo "$chosen"
 touch log.txt
 if [[ $same = 0  ]]; then
     echo -e "Files are identical:\t$chosen removed" | tee -a log.txt
