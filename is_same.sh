@@ -20,6 +20,7 @@ if [ $# -eq 0 ]; then
     echo -e "Enter second file name >"
     read second
     if [ -z "$first" ] || [ -z "$second" ]; then
+        echo "prompt error"
         echo "usage: is_same.sh file file [T|F]"
         exit 1
     else
