@@ -6,10 +6,6 @@
 #This script compares two files and deletes one of them if they have the same 
 #contents
 
-#prompt user if no arguments
-#delete file that comes first alphabetically 
-#test permission mod use cases
-
 fileOne=$1
 fileTwo=$2
 arg3=$3
