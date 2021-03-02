@@ -28,9 +28,14 @@ if [ $# -eq 0 ]; then
         fileTwo=second
     fi
 
+if [ $# -gt 3 ]; then
+    echo "usage: is_same.sh file file [T|F]" | tee -a log.txt
+    exit 1
 fi
 
-if [ $# -gt 1 ] && [ $# -lt 4 ]; then
+fi
+
+if [[ -n "$fileOne" ]] && [[ -n "$fileTwo" ]]  ; then
     if [ "$arg3" = "T" ] || [ "$arg3" = "F" ] || [ -z "$arg3" ]; then
     
         if [ -f "$fileOne"  ]; then
