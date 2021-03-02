@@ -104,7 +104,8 @@ fi
 echo "$chosen"
 touch log.txt
 if [[ $same = 0  ]]; then
-    echo -e "Files are identical:\t$fileOne removed" | tee -a log.txt
+    echo -e "Files are identical:\t$chosen removed" | tee -a log.txt
+    rm "$chosen"
 else
-    echo -e "Files not identical:\t$fileTwo not removed" | tee -a log.txt
+    echo -e "Files not identical:\t$chosen not removed" | tee -a log.txt
 fi
