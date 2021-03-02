@@ -14,6 +14,20 @@ fileOne=$1
 fileTwo=$2
 arg3=$3
 
+if [ $# -eq 0 ]; then
+    echo -e "Enter first file name >"
+    read first
+    echo -e "Enter second file name >"
+    read second
+    if [ -z "$first" ] || [ -z "$second" ]; then
+        echo "usage: is_same.sh file file [T|F]"
+        exit 1
+    else
+        fileOne=first
+        fileTwo=second
+    fi
+
+fi
 
 if [ $# -gt 1 ] && [ $# -lt 4 ]; then
     if [ "$arg3" = "T" ] || [ "$arg3" = "F" ] || [ -z "$arg3" ]; then
