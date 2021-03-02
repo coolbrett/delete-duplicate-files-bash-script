@@ -96,9 +96,9 @@ fi
 #choosing file
 chosen=0
 if [[ $fileOne < $fileTwo ]]; then
-    chosen=fileTwo
+    chosen=$fileTwo
 else
-    chosen=fileOne
+    chosen=$fileOne
 fi
 
 echo "$chosen"
